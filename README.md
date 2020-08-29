@@ -14,5 +14,6 @@ Basic Beginners C++ Command Line Program
   
   2.The codes add-up to a specific number.
   
-  The codes also multiply to give a specific number.
-  Enter the corect code to get to the next level and win! 
+  3.The codes also multiply to give a specific number.
+  
+  Enter the correct code to get to the next level and win! 
