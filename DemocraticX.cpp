@@ -31,7 +31,7 @@ std::cout << R"(
 }
 
 
-void PlayGame()
+bool PlayGame()
 {
     //game variables 
     const int CodeA = 4;
@@ -72,11 +72,13 @@ void PlayGame()
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
         std::cout << " \n You are in the system! \n";
+        return true;
     } 
     else
     {
         std::cout << "\n Wrong code! Your hack was discovered!!! \n";
         std::cout << "FBI is alerted you are burned.";
+        return false;
     }
 
 }
@@ -88,7 +90,7 @@ int main()
 
     while (true)
     {
-        PlayGame();
+        bool bLevelComplete = PlayGame();
         std::cin.clear();
         std::cin.ignore();
         
