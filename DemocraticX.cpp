@@ -75,7 +75,7 @@ void PlayGame()
     } 
     else
     {
-        std::cout << "\n Wrong code! Your hack was discovered! \n";
+        std::cout << "\n Wrong code! Your hack was discovered!! \n";
         std::cout << "FBI is alerted you are burned.";
     }
 
