@@ -10,7 +10,7 @@ Basic Beginners C++ Command Line Program
  
  ## Game Instructions
  
-  There are 3 numbers in the code.
-  The codes add-up to a specific number.
+  1.There are 3 numbers in the code.
+  2.The codes add-up to a specific number.
   The codes also multiply to give a specific number.
   Enter the corect code to get to the next level and win! 
