@@ -1,7 +1,9 @@
 #include <iostream>
+#include <ctime>
 
 void PrintIntroduction() 
 {
+
     std::cout << "\n" << R"(
     /                                                                )  
    )\ )                                                )              ( /(  
@@ -27,38 +29,45 @@ std::cout << R"(
 
 
 )" <<  std::endl;
+ 
+     std::cout << "\nHired by the democrats, you on a secrete mission to hack into \n";
+    std::cout << "the 2020 election to meddle with the votes.. \n";
+    std:: cout << std:: endl;
+    std:: cout << "You hide in plain sight and move to a secure location \n";
+    std::cout << "just outside of Langley VA. You proceed to hack into the \n";
+    std::cout << "Voting system...\n" ;
+    std:: cout << std:: endl;
 
 }
 
-
-bool PlayGame()
+void PrintLevel(int Difficulty)
 {
+        
+
+  std::cout << "You attempt to break into the Level " << Difficulty << " system \n";
+    std::cout << "Enter the correct code to continue \n\n";
+    
+}
+
+bool PlayGame(int Difficulty)
+{
+     
     //game variables 
-    const int CodeA = 4;
-    const int CodeB = 5;
-    const int CodeC = 6;
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     int CodeSum = CodeA + CodeB + CodeC;
     int CodeProduct = CodeA * CodeB * CodeC;
 
     
-
-    
-    std::cout << "\nHired by the democrats, you on a secrete mission to hack into \n";
-    std::cout << "the 2020 election to meddle with the votes.. \n";
-    std:: cout << std:: endl;
-    std:: cout << "You hide in plain sight and move to a secure location \n";
-    std::cout << "just outside of Langley VA. You proceed to hack into  \n";
-    std::cout << "Voting system...\n";
-    std:: cout << std:: endl;
-
-    //game instructions 
+          //game instructions 
     std:: cout << "|1.| There are 3 numbers in the code\n";
     std::cout << "|2.| The codes add-up to: " << CodeSum << "\n";
     std::cout << "|3.| The codes also multiply to give: " << CodeProduct << "\n";
     std::cout << "     Enter the corect code to get in.. \n\n" << std::endl;
     std::cout;
-    
+    PrintLevel(Difficulty);
 
     //Store Player guess
     int GuessA, GuessB, GuessC;
@@ -71,13 +80,13 @@ bool PlayGame()
     // check if the players guess is correct
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        std::cout << " \n You are in the system! \n";
+        std::cout << " \n You are in the system! Keep hacking through! \n";
         return true;
     } 
     else
     {
-        std::cout << "\n Wrong code! Your hack was discovered!!! \n";
-        std::cout << "FBI is alerted you are burned.";
+        std::cout << "\n Wrong code! Your hack was almost discovered!!! \n" ;
+        std::cout << "Please try again \n\n";
         return false;
     }
 
@@ -86,19 +95,27 @@ bool PlayGame()
 
 int main()
 {
+    srand(time(NULL));
     PrintIntroduction();
+    int LevelDifficulty = 1;
+    int const MaxLevel = 5;
 
-    while (true)
+    while (LevelDifficulty <= MaxLevel)
     {
-        bool bLevelComplete = PlayGame();
-        std::cin.clear();
-        std::cin.ignore();
+        bool bLevelComplete = PlayGame(LevelDifficulty);
+        std::cin.clear(); // clears erros 
+        std::cin.ignore(); // discards buffer
+        
+        if (bLevelComplete)
+        {
+            ++LevelDifficulty;
+        }
         
         
     }
     
-    
-    
+    std::cout << "You made it through the firewalls good job! \n" ;
+    std::cout << "Now lets swing those votes and blame Russia! \n" ;
     return 0;
     
 }
